@@ -1,0 +1,35 @@
+@import url('https://fonts.googleapis.com/css2?family=Dosis:wght@200..800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Chicle&display=swap');
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing: border-box;
+}
+
+.fontFamily-dosis {
+    font-family: "Dosis", sans-serif;
+}
+
+.bg-color-base {
+    background-color: #F4EAE0;
+}
+
+.bg-color-card{
+    background-image: linear-gradient(to top, #ebe3d5, #dcd3c5, #cdc4b4, #beb5a5, #b0a695);
+}
+
+.fontFamily-chicle{
+    font-family: "Chicle", serif;
+    font-weight: 400;
+    font-style: normal;
+}
+
+.gradient-text {
+    background-image: radial-gradient(circle, #776b5d, #5b4f47, #3e3532, #221d1d, #000000);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
