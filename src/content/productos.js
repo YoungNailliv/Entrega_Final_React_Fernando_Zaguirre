@@ -149,7 +149,7 @@ export const getProducts =  () => {
         if(productos.length > 0){
             setTimeout(() => {
                 res(productos);
-            },0);
+            },1000);
         } else {
             rej("No hay productos");
         }
@@ -165,7 +165,7 @@ export const getProduct = (id) => {
             if(producto){
                 setTimeout(() => {
                     res(producto);
-                }, 0);
+                }, 1000);
             } else {
                 rej("El producto que buscas no existe")
             }

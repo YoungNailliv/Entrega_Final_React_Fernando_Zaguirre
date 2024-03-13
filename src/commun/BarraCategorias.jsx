@@ -8,7 +8,7 @@ import { styles } from "../content/styles"
 export const BarraCategorias = () => {
     return (
         <div>
-            <ul className="grid grid-cols-4 fontFamily-dosis list-none w-full lg:w-[1599px]">
+            <ul className="grid grid-cols-4 fontFamily-dosis list-none">
                 {
                     categoriasProductos.map( (categoria) => {
                         
