@@ -47,7 +47,7 @@ export const Checkout = () => {
 
             {
                 idCompra ? (
-                    <div>
+                    <div className='py-[200px]'>
                         <h1 className='text-8xl fontFamily-chicle py-16'>Muchas gracias por tu compra! <br className='mb-10'/> el id de tu compra es de: <br /> {idCompra}</h1> 
                         <Link to={"/shop/all"}><button className='border border-black px-5 py-3 hover:scale-105 ease-in duration-75 active:scale-100 w-[200px] rounded shadow mb-10'>Seguir comprando</button></Link>
                     </div>

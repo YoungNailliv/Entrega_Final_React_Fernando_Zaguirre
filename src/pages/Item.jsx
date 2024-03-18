@@ -37,7 +37,7 @@ export const Item = () => {
 
         
     return (
-        <div className="bg-color-base">
+        <div className="bg-color-base h-[100%]">
             { isLoading ? <IsLoading/> :<h1> <ItemDetail producto={producto} onAdd={onAdd}/> </h1>}
         </div>
     )

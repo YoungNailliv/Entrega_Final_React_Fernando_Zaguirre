@@ -4,7 +4,7 @@ import { Circles } from "react-loader-spinner"
 export const IsLoading = () => {
     return (
         <section className="h-[500px]">
-            <div className="h-full flex justify-center items-center">
+            <div className="h-full flex justify-center items-center py-[200px]">
                 <Circles
                     height="80"
                     width="80"
