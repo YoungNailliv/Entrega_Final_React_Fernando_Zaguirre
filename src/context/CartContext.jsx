@@ -1,11 +1,12 @@
 import { createContext, useState } from "react";
+import { json } from "react-router-dom";
 import Swal from 'sweetalert2';
 
 export const CartContext = createContext();
 
 export const CartContextProvider = (  {children}  ) => {
     
-    const [cart,setCart] = useState([]);
+    const [cart,setCart] = useState(JSON.parse(localStorage.getItem("cart") )|| []);
 
     const getTotalItems = () => {
         const total = cart.reduce((acc, elemento) => {
@@ -28,6 +29,8 @@ export const CartContextProvider = (  {children}  ) => {
                 if (result.isConfirmed) {
                     const newCart = cart.filter(elemento => elemento.id !== id)
                     setCart([...newCart]);
+                    localStorage.setItem("cart", JSON.stringify([...newCart]))
+
                     Swal.fire({
                         title: "Se elimino el producto",
                         icon: "success",
@@ -52,6 +55,7 @@ export const CartContextProvider = (  {children}  ) => {
                 }).then((result) => {
                     if (result.isConfirmed) {
                         setCart([]);
+                        localStorage.setItem("cart", JSON.stringify([]))
                         Swal.fire({
                             
                             title: "Se ha vaciado el carrito",
@@ -75,44 +79,59 @@ export const CartContextProvider = (  {children}  ) => {
 
 
     const agregarAlCarrito = ( infoProducto, id ) => {
-        let isInCart = cart.some( (elemento) => elemento.id === infoProducto.id);
-
-        if(isInCart){
-            let productoExistente = cart.find( (elemento) => elemento.id === id);
-            let cantidadTotal = infoProducto.quantity + productoExistente.quantity;
-            
-            if(cantidadTotal <= infoProducto.stock){
-                infoProducto = {...productoExistente,quantity:cantidadTotal};
-                let nuevoCart = cart.filter( producto => producto.id !== infoProducto.id);
-                setCart([...nuevoCart,infoProducto]);
+        if(infoProducto.stock === 0){
+            Swal.fire(
+                {
+                    icon: "error",
+                    title: "No hay stock de este producto",
+                    timer: 1000,
+                    showConfirmButton: false,
+                }
+            )
+        }else{
+            let isInCart = cart.some( (elemento) => elemento.id === infoProducto.id);
+    
+            if(isInCart){
+                let productoExistente = cart.find( (elemento) => elemento.id === id);
+                let cantidadTotal = infoProducto.quantity + productoExistente.quantity;
+                
+                if(cantidadTotal <= infoProducto.stock){
+                    infoProducto = {...productoExistente,quantity:cantidadTotal};
+                    let nuevoCart = cart.filter( producto => producto.id !== infoProducto.id);
+                    setCart([...nuevoCart,infoProducto]);
+                    localStorage.setItem("cart", JSON.stringify([...nuevoCart,infoProducto]))
+                    Swal.fire({
+                        icon: "success",
+                        title: "Agregado al carrito!",
+                        showConfirmButton: false,
+                        timer: 800
+                    });
+                }else {
+                    infoProducto = {...productoExistente,quantity:infoProducto.stock};
+                    let nuevoCart = cart.filter( producto => producto.id !== infoProducto.id);
+                    setCart([...nuevoCart,infoProducto]);
+                    localStorage.setItem("cart", JSON.stringify([...nuevoCart,infoProducto]))
+                    Swal.fire({
+                        icon: "error",
+                        title: "ya alcanzaste el maximo de este producto",
+                        showConfirmButton: false,
+                        timer: 1500
+                    });
+                }
+            }else {
                 Swal.fire({
                     icon: "success",
                     title: "Agregado al carrito!",
                     showConfirmButton: false,
                     timer: 800
                 });
-            }else {
-                infoProducto = {...productoExistente,quantity:infoProducto.stock};
-                let nuevoCart = cart.filter( producto => producto.id !== infoProducto.id);
-                setCart([...nuevoCart,infoProducto]);
-                Swal.fire({
-                    icon: "error",
-                    title: "ya alcanzaste el maximo de este producto",
-                    showConfirmButton: false,
-                    timer: 1500
-                });
+                setCart([...cart,infoProducto]);
+                localStorage.setItem("cart", JSON.stringify([...cart,infoProducto]))
             }
-        }else {
-            Swal.fire({
-                icon: "success",
-                title: "Agregado al carrito!",
-                showConfirmButton: false,
-                timer: 800
-            });
-            setCart([...cart,infoProducto]);
+            
+
         }
         
-
         
     }
 

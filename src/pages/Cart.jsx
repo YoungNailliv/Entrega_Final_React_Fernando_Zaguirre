@@ -2,7 +2,7 @@ import { useContext } from "react"
 import { Link } from "react-router-dom"
 import { CartContext } from "../context/CartContext"
 import { NoCart } from "../commun/NoCart";
-import { ResumeCart } from "../components/ResumeCart";
+import { ResumeCart } from "../commun/ResumeCart";
 
 
 
@@ -13,7 +13,7 @@ export const Cart = () => {
     return (
         <section className="bg-color-base flex flex-col items-center">
             <h1 className="text-9xl fontFamily-chicle p-3  text-s text-left w-[70%] m-auto">Carrito</h1>
-            <div className="flex flex-col items-end">
+            <div className="flex flex-col items-end max-w-[90%]">
                 <div className=" bg-slate-100 w-full xl:w-[1400px] lg:[1000px] h-[600px] mb-[20px]  overflow-y-scroll">
                     <div className="bg-[#F4DFC8] h-[50px]">
                     </div>

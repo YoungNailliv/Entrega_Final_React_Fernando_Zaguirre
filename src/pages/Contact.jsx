@@ -2,9 +2,9 @@
 
 export const Contact = () => {
     return (
-        <section className="bg-color-base flex flex-col justify-center">
+        <section className="bg-color-base flex flex-col justify-center items-center">
             <h1 className="text-8xl fontFamily-chicle mt-5 text-center">Contacto</h1>
-            <div className="flex flex-row justify-around w-full lg:w-[80%] m-auto">
+            <div className="flex flex-row md:flex-col justify-around items-center w-full lg:w-[80%] m-auto">
                 <form action="" 
                 className="flex flex-col w-[300px] md:w-[500px] gap-5 mt-5">
                     <input type="text" name="name" placeholder="Nombre" className="h-[40px] rounded-lg shadow-md"/>

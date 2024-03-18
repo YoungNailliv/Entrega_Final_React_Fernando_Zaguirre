@@ -1,4 +1,4 @@
-import CantidadWidget from "../commun/CantidadWidget";
+import CantidadWidget from "./CantidadWidget";
 import { useNavigate } from "react-router-dom";
 
 

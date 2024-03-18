@@ -1,11 +1,12 @@
 import { useEffect } from "react"
 import { useState } from "react"
-import { CardProduct } from "../../components/CardProduct";
-import { BarraCategorias } from "../../commun/BarraCategorias";
+import { CardProduct } from "../commun/CardProduct";
+import { BarraCategorias } from "../commun/BarraCategorias";
 import { useParams } from "react-router-dom";
-import { IsLoading } from "../IsLoading";
-import { db } from "../../fireBaseConfig";
+import { IsLoading } from "./IsLoading";
+import { db } from "../fireBaseConfig";
 import {collection,getDocs, query, where} from "firebase/firestore"
+import { AgregarDoc } from "../commun/AgregarDoc";
 
 const ItemListContainer = () => {
 
@@ -38,7 +39,6 @@ const ItemListContainer = () => {
     return (
         <div className="bg-color-base flex flex-col flex-wrap justify-center items-center">
             <BarraCategorias/>  
-            
 
             <div className="bg-color-base flex flex-row flex-wrap justify-center items-center w-full xl:w-[1400px] m-auto">
                 {

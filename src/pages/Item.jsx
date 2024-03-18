@@ -1,19 +1,17 @@
 import { useContext, useEffect, useState } from "react";
 import { useParams } from "react-router-dom"
-import { getProduct } from "../content/productos";
-import { ItemDetail } from "../components/ItemDetail";
+import { ItemDetail } from "../commun/ItemDetail";
 import { CartContext } from "../context/CartContext";
 import { IsLoading } from "./IsLoading";
 import {collection,doc,getDoc} from "firebase/firestore"
 import { db } from "../fireBaseConfig";
-import Swal from 'sweetalert2'
 
 
 export const Item = () => {
 
     const { id } = useParams();
     const [producto, setProducto] = useState(null );
-    const {setCart,cart,agregarAlCarrito} = useContext(CartContext);
+    const {agregarAlCarrito} = useContext(CartContext);
     const [isLoading, setIsLoading] = useState(true)
     
 

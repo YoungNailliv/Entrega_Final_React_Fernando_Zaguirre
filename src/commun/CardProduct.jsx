@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom"
-import CantidadWidget from "../commun/CantidadWidget"
+import CantidadWidget from "./CantidadWidget"
 
 export const CardProduct = ( {nombreAlbum,artista,year,genero,categoria,precio,descripcion,stock,productImg,oferta,id} ) => {
 

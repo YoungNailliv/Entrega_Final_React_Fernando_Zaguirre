@@ -12,7 +12,7 @@ export const Navbar = () => {
     
     return(
         <header className="bg-color-base w-full">
-            <nav className="h-min-fit  md:max-w-[80%] m-auto bg-color-base ">
+            <nav className="h-min-fit w-full xl:max-w-[80%] m-auto bg-color-base ">
                 <div>
                     <ul className=" grid grid-cols-4 fontFamily-dosis list-none">
                         <NavLink 
