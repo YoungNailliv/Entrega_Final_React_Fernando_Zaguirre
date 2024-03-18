@@ -52,7 +52,7 @@ export const Checkout = () => {
                         <Link to={"/shop/all"}><button className='border border-black px-5 py-3 hover:scale-105 ease-in duration-75 active:scale-100 w-[200px] rounded shadow mb-10'>Seguir comprando</button></Link>
                     </div>
                 ):( 
-            <div className='py-20 flex flex-col justify-center items-center'>
+            <div className='py-[200px] flex flex-col justify-center items-center'>
                 <h1 className='text-6xl fontFamily-chicle mb-5'>Ya casi esta...Rellena tus datos para terminar la compra</h1>
                 <form action="" onSubmit={envioFormulario}
                 className='flex flex-col bg-color-base gap-5 justify-center items-center'>
